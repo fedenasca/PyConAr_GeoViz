@@ -5,7 +5,7 @@ import dash_html_components as html
 from plotly import graph_objs as go
 
 app = dash.Dash(__name__)
-server = app.server
+server = app.server #unicorn, lo usamos a ese server
 
 app.layout = html.Div([
 

@@ -5,11 +5,12 @@ import dash_html_components as html
 from plotly import graph_objs as go
 
 mapbox_access_token = 'pk.eyJ1IjoiamFja2x1byIsImEiOiJjajNlcnh3MzEwMHZtMzNueGw3NWw5ZXF5In0.fk8k06T96Ml9CLGgKmk81w'
-
+#nos pide el key... son gratuitos, 
+#hay que entrar a mapbox.como te registrar y te da uno
 app = dash.Dash(__name__)
 server = app.server
 
-app.layout = html.Div([
+app.layout = html.Div([ #para crea un mapa, creamos un elemento graph, y le tenemos que poner la figura y el layout
 
     html.H1("Mapa de distribucion Electrica"),
 
@@ -24,11 +25,12 @@ app.layout = html.Div([
         id = 'map',
         figure = go.Figure(
             data= [
-                go.Scattermapbox(
+                go.Scattermapbox( #solo estamos poniendo un punto... pero lat=[1, 2, 3] le pasamos listas :)... Si tenemos un data set de pandas, le pasamos Archivo n4
                     lat=[4.6008531],
                     lon=[-74.0651495],
                     text=['Universidad De Los Andes'],
-                    mode='markers',
+                    marker=dict(size=10),
+                    mode='markers', #si le pongo modo line... me va marcar linea entre puntos, tambien podemos llenar el area del polígono
                     name='SciPyLA')
             ],
             layout= go.Layout(

@@ -126,7 +126,7 @@ def update_map(region, color_var, size_var):
         trd_max = trd_selection[size_var].quantile(0.95)
         size_norm = np.log1p(trd_selection[size_var] / trd_max) * 30
         size_norm.clip(6, 25, inplace=True)
-
+    #info= le armo el vector de texto y se lo paso a text y así muestro el hover, pop-up
     map_data = [
         go.Scattermapbox(
             lat= trd_selection.lat,
@@ -141,7 +141,7 @@ def update_map(region, color_var, size_var):
                 reversescale = True,
                 showscale = True
             ),
-
+#            text=info
         )]
 
     return go.Figure(data=map_data, layout=map_layout)
